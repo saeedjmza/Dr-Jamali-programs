@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>راهنمای نصب و اجرای نرم‌افزار مهندسی تونل - نسخه ۱.۰</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: #111827;
+      --card-border: #1f293d;
+      --primary: #3b82f6;
+      --accent: #f59e0b;
+      --emerald: #10b981;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 24px 16px;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .card-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .icon-win { background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.3); color: #60a5fa; }
+    .icon-apk { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); color: #34d399; }
+    .icon-info { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); color: #fbbf24; }
+    h2 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f8fafc;
+    }
+    ol, ul {
+      padding-right: 24px;
+      margin-bottom: 16px;
+    }
+    li {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    strong {
+      color: #fff;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #2563eb;
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+    .btn-emerald {
+      background: #059669;
+      color: #fff;
+    }
+    .btn-emerald:hover {
+      background: #047857;
+    }
+    .highlight-box {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .contact-item {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #1e293b;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+    .contact-item .label {
+      color: var(--text-muted);
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+    .contact-item .value {
+      font-family: monospace;
+      color: #38bdf8;
+      font-weight: 700;
+      direction: ltr;
+      display: block;
+    }
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">نگارش رسمی ۱.۰ (Version 1.0)</div>
+      <h1>سامانه تحلیل ژئومکانیکی، طبقه‌بندی و طرح سیستم نگهداری تجربی تونل</h1>
+      <p class="subtitle">راهنمای فارسی ساخت، نصب و اجرای آفلاین در ویندوز (Windows EXE) و اندروید (Android APK & PWA)</p>
+    </header>
+
+    <!-- بخش ویندوز -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-win">💻</div>
+        <div>
+          <h2>روش‌های اجرای برنامه در سیستم‌عامل ویندوز</h2>
+          <span style="color: var(--text-muted); font-size: 12px;">کاملاً مستقل و بدون نیاز به اینترنت در محل کارگاه پروژه</span>
+        </div>
+      </div>
+
+      <h3 style="font-size: 15px; color: #93c5fd; margin-bottom: 8px;">روش ۱: ساخت آنی فایل تک‌فایل EXE بدون نیاز به اینترنت (۱۰۰٪ آفلاین - پیشنهادی)</h3>
+      <ol>
+        <li>روی فایل <strong>build-exe.bat</strong> دابل‌کلیک کنید.</li>
+        <li>این اسکریپت با استفاده از کامپایلر استاندارد دات‌نت ویندوز که روی تمام نسخه‌های ویندوز ۷، ۸، ۱۰ و ۱۱ وجود دارد، در کمتر از <strong>۲ ثانیه</strong> فایل تک‌فایل <strong>release\Tunnelapp1.0.exe</strong> را تولید می‌کند.</li>
+        <li><strong>کاملاً مستقل (Single-File):</strong> این فایل هیچ نیازی به پوشه <code>dist</code> یا فایل‌های جانبی ندارد! تمامی فایل‌های وب، استایل‌ها و فونت‌ها در حافظه داخلی خود فایل EXE فشرده شده‌اند و می‌توانید فایل <strong>Tunnelapp1.0.exe</strong> را به تنهایی روی فلش، دسکتاپ یا هر سیستم دیگری کپی و اجرا نمایید.</li>
+      </ol>
+
+      <h3 style="font-size: 15px; color: #93c5fd; margin-top: 18px; margin-bottom: 8px;">روش ۲: اجرای مستقیم آفلاین بدون نیاز به بیلد EXE</h3>
+      <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 10px;">
+        کافی است روی فایل <strong>start-offline-app.bat</strong> کلیک کنید تا سامانه در پنجره مجزای دسکتاپ ویندوز باز شود.
+      </p>
+
+      <div class="highlight-box">
+        💡 <strong>نکته مهم درباره پنجره مشکی (CMD):</strong> به دلیل محدودیت‌های سیستم‌عامل ویندوز در نمایش خط فارسی در خط فرمان قدیمی CMD، نوشته‌های داخل اسکریپت‌های bat به زبان انگلیسی روان تنظیم شده‌اند تا حروف به شکل علامت سؤال (????) نشان داده نشوند. تمام خطاهای احتمالی زمان اجرای فایل EXE نیز به زبان انگلیسی نمایش داده می‌شوند.
+      </div>
+    </div>
+
+    <!-- بخش اندروید -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-apk">📱</div>
+        <div>
+          <h2>روش‌های نصب و استفاده روی گوشی‌های اندروید</h2>
+          <span style="color: var(--text-muted); font-size: 12px;">مستقل از اینترنت، با آیکون اختصاصی و تمام‌صفحه</span>
+        </div>
+      </div>
+
+      <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px 14px; margin-bottom: 16px;">
+        <span style="color: #6ee7b7; font-weight: 700; font-size: 13px;">🌐 آدرس مستقیم و معتبر نسخه ابری و وب‌اپلیکیشن:</span>
+        <div style="direction: ltr; font-family: monospace; font-size: 12px; color: #38bdf8; margin-top: 4px; word-break: break-all;">
+          <a href="https://ais-pre-fcstyvfufuog5ozewob7r4-655471265608.europe-west2.run.app" target="_blank" style="color: #38bdf8; text-decoration: underline;">https://ais-pre-fcstyvfufuog5ozewob7r4-655471265608.europe-west2.run.app</a>
+        </div>
+      </div>
+
+      <h3 style="font-size: 15px; color: #6ee7b7; margin-bottom: 8px;">روش ۱: نصب مستقیم WebAPK روی گوشی (سریع‌ترین و مطمئن‌ترین روش گوگل)</h3>
+      <ol>
+        <li>آدرس بالا را در مرورگر <strong>Google Chrome</strong> یا <strong>Samsung Internet</strong> گوشی خود باز کنید.</li>
+        <li>روی منوی سه‌نقطه (⋮) در بالای مرورگر ضربه بزنید.</li>
+        <li>گزینه <strong>«نصب برنامه» (Install app)</strong> یا <strong>«افزودن به صفحه اصلی» (Add to Home screen)</strong> را انتخاب کنید.</li>
+        <li>دکمه <strong>Install</strong> را تأیید کنید. ظرف چند ثانیه اپلیکیشن بومی با آیکون اختصاصی روی گوشی شما نصب شده و در اعماق تونل بدون اینترنت کار خواهد کرد.</li>
+      </ol>
+
+      <h3 style="font-size: 15px; color: #6ee7b7; margin-top: 18px; margin-bottom: 8px;">روش ۲: تولید رایگان فایل فیزیکی .apk با PWABuilder مایکروسافت</h3>
+      <p style="font-size: 13px; color: #cbd5e1; margin-bottom: 12px;">
+        برای ساخت و دریافت مستقیم فایل فیزیکی <code>*.apk</code>، شرکت مایکروسافت سامانه ابری رایگانی فراهم کرده است:
+      </p>
+      <a href="https://www.pwabuilder.com/?url=https%3A%2F%2Fais-pre-fcstyvfufuog5ozewob7r4-655471265608.europe-west2.run.app" target="_blank" rel="noopener noreferrer" class="btn btn-emerald">
+        باز کردن سامانه ساخت آنلاین APK مایکروسافت با آدرس اختصاصی ↗
+      </a>
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">
+        با کلیک روی دکمه بالا، آدرس برنامه به صورت خودکار در PWABuilder بارگذاری شده و کافیست در برگه Android دکمه Package را بزنید تا فایل فیزیکی apk آماده را دانلود کنید.
+      </p>
+    </div>
+
+    <!-- مشخصات و پشتیبانی -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon icon-info">👤</div>
+        <div>
+          <h2>شناسنامه نرم‌افزار و راه‌های ارتباطی</h2>
+          <span style="color: var(--text-muted); font-size: 12px;">پشتیبانی فنی و ثبت پیشنهادات توسعه</span>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="label">مدیر طراحی سامانه:</div>
+          <div style="font-weight: 800; color: #fff;">سعید جمالی زواره</div>
+          <div style="color: #fbbf24; font-size: 11px;">دکترای مکانیک سنگ</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">پست الکترونیک:</div>
+          <a href="mailto:Saeed.jm.za@gmail.com" class="value">Saeed.jm.za@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <div class="label">تلفن تماس:</div>
+          <a href="tel:+989124282899" class="value" style="color: #34d399;">+989124282899</a>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      نرم‌افزار طبقه‌بندی و طرح تونل بر اساس روابط تجربی (Bieniawski RMR, Barton Q, Hoek-Brown GSI, Terzaghi, Russo) | نگارش ۱.۰
+    </footer>
+  </div>
+</body>
+</html>

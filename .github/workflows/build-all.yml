@@ -1,0 +1,69 @@
+name: Build Windows EXE and Android APK
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: Build Windows Desktop EXE
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install --no-audit --no-fund
+
+      - name: Build Web Application
+        run: npm run build
+
+      - name: Compile Native Standalone EXE
+        run: |
+          mkdir release -ErrorAction SilentlyContinue
+          Copy-Item -Path "dist" -Destination "release\dist" -Recurse -Force
+          $csc = "${env:SystemRoot}\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+          if (-not (Test-Path $csc)) {
+            $csc = "${env:SystemRoot}\Microsoft.NET\Framework\v4.0.30319\csc.exe"
+          }
+          & $csc /target:winexe /win32icon:build\icon.ico /out:release\Tunnelapp1.0.exe /r:System.Windows.Forms.dll scripts\TunnelappLauncher.cs
+
+      - name: Upload Windows Standalone Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tunnelapp1.0-Windows-EXE
+          path: |
+            release/Tunnelapp1.0.exe
+            release/dist/
+
+  build-pwa-android:
+    name: Package Android WebAPK Info
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install and Build Web Distribution
+        run: |
+          npm install --no-audit --no-fund
+          npm run build
+
+      - name: Upload Web & Android Assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: Tunnelapp1.0-Android-PWA-Dist
+          path: dist/

@@ -1,0 +1,41 @@
+{
+  "appId": "com.geomechanics.tunnelapp",
+  "productName": "Tunnelapp1.0",
+  "copyright": "Copyright © 2026 Geomechanics Engineering",
+  "directories": {
+    "output": "release",
+    "buildResources": "build"
+  },
+  "files": [
+    "dist/**/*",
+    "electron/**/*",
+    "package.json"
+  ],
+  "win": {
+    "icon": "build/icon.ico",
+    "executableName": "Tunnelapp1.0",
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "Tunnelapp1.0-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Tunnelapp1.0",
+    "installerIcon": "build/icon.ico",
+    "uninstallerIcon": "build/icon.ico"
+  },
+  "portable": {
+    "artifactName": "Tunnelapp1.0-Portable-${arch}.exe"
+  }
+}
